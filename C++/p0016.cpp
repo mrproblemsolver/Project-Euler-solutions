@@ -8,7 +8,7 @@ using namespace std;
 
 int number = 2;
 int pow = 1000;
-string answer() {
+int answer() { 
     vector<int> retmatrix;
     retmatrix.push_next(1);
     int matrixlen = 0;
