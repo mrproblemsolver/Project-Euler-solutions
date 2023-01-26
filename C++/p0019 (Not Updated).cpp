@@ -54,7 +54,7 @@ int answer() {
  vector<int> targetseconddate = {totaldom[11], 12, targetcentury * 100};
  vector<int> indexdate;
  int indexdow = firstdow;
- for (int i = 0; i < 3; i++) indexdate.push_next(firstdate[i]);
+ for (int i = 0; i < 3; i++) indexdate.push_back(firstdate[i]);
  while (isfuturedate(targetfirstdate, indexdate)) {
   indexdow = getheadofmonth(indexdate, indexdow);
   }
