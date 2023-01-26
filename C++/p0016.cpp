@@ -10,7 +10,7 @@ int number = 2;
 int pow = 1000;
 int answer() { 
     vector<int> retmatrix;
-    retmatrix.push_next(1);
+    retmatrix.push_back(1);
     int matrixlen = 0;
     int subtotal = 0;
     for (int i = 0; i < pow; i++) {
@@ -23,7 +23,7 @@ int answer() {
             subtotal /= 10;
             }
         while (subtotal > 0) {
-            retmatrix.push_next(subtotal % 10);
+            retmatrix.push_back(subtotal % 10);
             matrixlen++;
             subtotal -= subtotal % 10;
             subtotal /= 10;
