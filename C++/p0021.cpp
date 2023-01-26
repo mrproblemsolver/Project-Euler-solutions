@@ -35,11 +35,11 @@ int answer() {
                     if (!iaccepted && !jaccepted) break;
                     }
                 if (iaccepted) {
-                    founded.push_next(i);
+                    founded.push_back(i);
                     foundedlength++;
                     }
                 if (jaccepted) {
-                    founded.push_next(j);
+                    founded.push_back(j);
                     foundedlength++;
                     }
                 }
