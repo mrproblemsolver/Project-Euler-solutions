@@ -13,7 +13,7 @@ using namespace std;
 int factorial = 100;
 int answer() {
     vector<int> retmatrix;
-    retmatrix.push_next(1);
+    retmatrix.push_back(1);
     int matrixlength = 1;
     int remain = 0;
     for (int i = 2; i <= factorial; i++) {
@@ -26,7 +26,7 @@ int answer() {
         int tmp = 0;
         while (remain > 0) {
             tmp = remain % 10;
-            retmatrix.push_next(tmp);
+            retmatrix.push_back(tmp);
             remain -= tmp;
             remain /= 10;
             matrixlength++;
