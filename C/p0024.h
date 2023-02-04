@@ -13,12 +13,8 @@ char[] answer() {
  long long int total = 1;
  long long int Lpermlength = permlength;
  long long int Lpermindextarget = permindextarget;
- bool passed = true;
- for (long long int i = 1; i <= Lpermlength; i++) {
+ for (long long int i = 2; i <= Lpermlength; i++) {
   total *= i;
-  if (total > Lpermtargetindex) {
-   passed = false;
-   }
   }
  int pit = permindextarget;
  if (total % Lpermtargetindex == 1) {
@@ -27,7 +23,7 @@ char[] answer() {
    }
   return perm;
   }
- if (!passed) {
+ if (total <= Lpermtargetindex) {
   if (total % Lpermtargetindex == 0) {
    for (int i = 0; i < permlength; i++) {
     perm[i] = permlength - i - 1;
