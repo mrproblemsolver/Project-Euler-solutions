@@ -30,7 +30,7 @@ char[] answer() {
  if (!passed) {
   if (total % Lpermtargetindex == 0) {
    for (int i = 0; i < permlength; i++) {
-    perm[i] = permlength - perm[i] - 1;
+    perm[i] = permlength - i - 1;
     }
    return perm;
    }
