@@ -80,6 +80,8 @@ int answer() {
   results -= resptr;
   resptr = 0;
   }
+ free(remains);
+ free(results);
  return ret;
  }
 int main(void) {
