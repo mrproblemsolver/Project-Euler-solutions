@@ -2,6 +2,7 @@
  https://projecteuler.net/problem=26
  */
 #include <stdio.h>
+#include <stdlib.h>
 int maxnumber = 1000;
 int[] divide(int number, int divider) {
  int ret[2];
