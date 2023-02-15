@@ -7,11 +7,14 @@ int mina = -999;
 int maxb = 1000;
 int minb = -1000;
 bool isprime(long long int result) {
- if (result % 2 == 0) return false;
- for (long long int i = 3; (i * i) < result; i += 2) {
-  if (result % i == 0) return false;
+ long long int n = result;
+ if (n < 0) n = n * -1;
+ if (n <= 1) return false;
+ if (n % 2 == 0) return false;
+ for (long long int i = 3; (i * i) < n; i += 2) {
+  if (n % i == 0) return false;
   }
- return (i * i) != result;
+ return (i * i) != n;
  }
 long long int answer() {
  int b = 0;
