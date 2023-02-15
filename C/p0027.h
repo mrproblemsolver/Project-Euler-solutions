@@ -11,7 +11,7 @@ bool isprime(long long int result) {
  for (long long int i = 3; (i * i) < result; i += 2) {
   if (result % i == 0) return false;
   }
- return true;
+ return (i * i) != result;
  }
 long long int answer() {
  int b = 0;
