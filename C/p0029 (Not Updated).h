@@ -19,7 +19,7 @@ char* copy(char* ref, int length) {
  return ret;
  }
 char* exponentiation_multiplication_sub(char* ref1, int ref1len, char ref2) {
- char remain = '0';
+ int remain = 0;
  if (ref2 == '0') {
   char* retalt = (char*)malloc(sizeof(char));
   ref1len = 1;
@@ -31,17 +31,20 @@ char* exponentiation_multiplication_sub(char* ref1, int ref1len, char ref2) {
   return retalt;
   }
  char* ret = copy(ref1, ref1len);
+ int nextnumber = 0;
  for (int a = 0; a < ref1len; a++) {
-  remain = remain + (*ref1 * ref2);
-  *ret = remain % 10;
-  remain -= *ret;
+  remain = remain + ((*ref1 - '0') * (ref2 - '0'));
+  nextnumber = remain % 10;
+  *ret = (nextnumber + '0');
+  remain -= nextnumber;
   remain /= 10;
   ref1++;
   ret++;
   }
  while (remain > 0) {
-  *ret = remain % 10;
-  remain -= *ret;
+  nextnumber = remain % 10;
+  *ret = (nextnumber + '0');
+  remain -= nextnumber;
   remain /= 10;
   ref1++;
   ref1len++;
@@ -69,25 +72,28 @@ void exponentiation_multiplication(*char ref1, *char ref2, int ref1len, int ref2
  ref1 = (char*)malloc(sizeof(char));
  ref1len = 0;
  int loopstart = -1;
+ int nextnumber = 0;
  for (int a = 0; a < longest; a++) {
   for (int b = loopstart < 0 ? 0 : loopstart; b < ref2len; b++) {
    if (a <= b && sumcachelen[b] > a) {
-    remain += *sumcache[b];
+    remain += (*sumcache[b] - '0');
     sumcache[b]++;
     }
    else if (sumcachelen[a] <= a) {
     if (loopstart == b - 1) loopstart = b;
     }
    }
-  *ref1 = remain % 10;
-  remain -= *ref1;
+  nextnumber = remain % 10;
+  *ref1 = (nextnumber + '0');
+  remain -= nextnumber;
   remain /= 10;
   ref1++;
   ref1len++;
   }
  while (remain > 0) {
-  *ref1 = remain % 10;
-  remain -= *ref1;
+  nextnumber = remain % 10;
+  *ref1 = (nextnumber + '0');
+  remain -= nextnumber;
   remain /= 10;
   ref1++;
   ref1len++;
@@ -112,9 +118,11 @@ void exponentiation(int a, int b, char* buffer, int bufferlen) {
   return;
   }
  bufferlen = 0;
+ int nextnumber = 0;
  while (refa > 0) {
-  *buffer = refa % 10;
-  refa -= *buffer;
+  nextnumber = (refa % 10);
+  *buffer = (nextnumber + '0');
+  refa -= nextnumber;
   refa /= 10;
   buffer++;
   bufferlen++;
